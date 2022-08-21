@@ -1,3 +1,6 @@
+/* =============================================
+            top header bg image style
+================================================ */
 .top-header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/banner.jpg);
     background-repeat: no-repeat;
@@ -5,10 +8,16 @@
     height: 640px;
 }
 
+/* =============================================
+        top header headline font size  style
+================================================ */
 .top-header h1 {
     font-size: 6vw;
 }
 
+/* =============================================
+        players card image height style
+================================================ */
 .players-container img {
     height: 180px;
 }
