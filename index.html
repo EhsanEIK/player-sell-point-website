@@ -18,7 +18,7 @@
             <span class="position-absolute top-50 start-50 translate-middle">
                 <h1 class="text-warning fw-bold">Player Sell
                     Point</h1>
-                <p class="text-white fs-5 text-center">You Can Buy Only Five Players For Your Team </p>
+                <p class="text-white fs-5 fst-italic text-center">You Can Buy Only Five Players For Your Team </p>
             </span>
         </section>
     </header>
@@ -27,8 +27,8 @@
         <section class="mt-5">
             <div class="row">
                 <!-- players container part -->
-                <div class="col-md-8 players-container">
-                    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-5 gx-4">
+                <div class="col-lg-9 col-md-7 col-sm-12 players-container">
+                    <div class="row row-cols-lg-3 row-cols-md-1 row-cols-1 gy-5 gx-4">
                         <!-- card-1 -->
                         <div class="col">
                             <div class="card h-100">
@@ -67,7 +67,7 @@
                             <div class="card h-100">
                                 <img src="./images/mash.jpg" class="card-img-top" alt="mash">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Mashrafee Bin Mortaza</h5>
+                                    <h5 class="card-title">Mashrafee Mortaza</h5>
                                     <p class="card-text fst-italic">All Rounder - Bangladesh</p>
                                     <button class="btn btn-danger text-uppercase w-100 mt-3">Select</button>
                                 </div>
@@ -112,7 +112,7 @@
                                 <img src="./images/abd.jpg" class="card-img-top" alt="Villiers">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">AB de Villiers</h5>
-                                    <p class="card-text fst-italic">Keeper-Batsman - South Africa</p>
+                                    <p class="card-text fst-italic">Batsman - South Africa</p>
                                     <button class="btn btn-danger text-uppercase w-100 mt-3">Select</button>
                                 </div>
                             </div>
@@ -163,10 +163,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 text-white">
+
+                <!-- five players display & calculation part -->
+                <div class="col-lg-3 col-md-5 col-sm-12 text-white">
                     <!-- selected five players display part -->
-                    <div class="bg-secondary mb-5 p-4">
-                        <h3>Selected-Five</h3>
+                    <div class="bg-dark mb-5 p-4">
+                        <h3 class="text-center">Selected-Five</h3>
+                        <hr class="mb-4">
                         <ul>
                             <li>Player-1</li>
                             <li>Player-2</li>
@@ -174,6 +177,47 @@
                             <li>Player-4</li>
                             <li>Player-5</li>
                         </ul>
+                    </div>
+
+                    <!-- calculation part -->
+                    <div class="bg-dark mb-5 p-4">
+                        <h3 class="text-center">Budget</h3>
+                        <hr class="mb-4">
+                        <!-- per player input field and button -->
+                        <div class="mb-3 row">
+                            <label for="per-player-input-field" class="col-sm-5 col-form-label">Per Player</label>
+                            <div class="col-sm-7">
+                                <input type="text" id="per-player-input-field" class="form-control">
+                            </div>
+                            <button id="btn-calculate" class="btn btn-primary fw-semibold w-100 my-3">Calculate</button>
+                        </div>
+                        <!-- final calculation -->
+                        <p class="my-4">
+                            Player Expenses:
+                            <span class="float-end">
+                                $<span id="player-expenses-element">00</span>
+                            </span>
+                        </p>
+                        <div class="mb-3 row">
+                            <label for="manager-input-field" class="col-sm-5 col-form-label">Manager</label>
+                            <div class="col-sm-7">
+                                <input type="text" id="manager-input-field" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="coach-input-field" class="col-sm-5 col-form-label">Coach</label>
+                            <div class="col-sm-7">
+                                <input type="text" id="coach-input-field" class="form-control">
+                            </div>
+                            <button id="btn-calculate-total" class="btn btn-primary fw-semibold w-100 my-3">Calculate
+                                Total</button>
+                        </div>
+                        <p class="h5 fw-bold my-4">
+                            Total:
+                            <span class="float-end">
+                                $<span id="total-element">00</span>
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
