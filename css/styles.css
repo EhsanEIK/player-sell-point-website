@@ -5,6 +5,10 @@
     height: 640px;
 }
 
-h1 {
+.top-header h1 {
     font-size: 6vw;
+}
+
+.players-container img {
+    height: 180px;
 }
