@@ -3,6 +3,8 @@ let count = 0;
 
 // select player and display all selected players
 function selectPlayer(name) {
+    document.getElementById('default-text').style.display = 'none';
+
     const playerName = getElementTexetById(name, false);
     const li = document.createElement('li');
 
