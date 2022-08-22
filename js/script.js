@@ -22,7 +22,6 @@ function selectPlayer(name) {
 
 // after selection, button will be disabled
 document.getElementById('all-players-container').addEventListener('click', function (event) {
-    const playersCount = playersDisplayContainer.childElementCount;
     if (count == 5) {
         return;
     }
