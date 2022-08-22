@@ -4,9 +4,13 @@ function getInputValueById(elementId) {
     return inputValue;
 }
 
-function getElementTexetById(elementId) {
+function getElementTexetById(elementId, isNumber) {
     const element = document.getElementById(elementId);
-    const elementText = element.innerText
+    if (isNumber == true) {
+        const elementText = parseFloat(element.innerText);
+        return elementText;
+    }
+    const elementText = element.innerText;
     return elementText;
 }
 

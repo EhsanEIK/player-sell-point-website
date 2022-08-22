@@ -2,7 +2,7 @@ const playersDisplayContainer = document.getElementById('players-display-contain
 
 // select player and display all selected players
 function selectPlayer(name, button) {
-    const playerName = getElementTexetById(name);
+    const playerName = getElementTexetById(name, false);
 
     const p = document.createElement('li');
 
@@ -31,4 +31,14 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
     const perPlayerExpense = getInputValueById('per-player-input-field');
     const playersExpenses = perPlayerExpense * totalPlayers;
     setElementextById('player-expenses-element', playersExpenses);
+})
+
+// final budget calculation
+document.getElementById('btn-calculate-total').addEventListener('click', function () {
+    const playersExpenses = getElementTexetById('player-expenses-element', true);
+    const managerCost = getInputValueById('manager-input-field');
+    const coachCost = getInputValueById('coach-input-field');
+
+    const totalCost = playersExpenses + managerCost + coachCost;
+    setElementextById('total-element', totalCost);
 })
