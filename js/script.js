@@ -1,26 +1,38 @@
 const playersDisplayContainer = document.getElementById('players-display-container');
+let count = 0;
 
 // select player and display all selected players
-function selectPlayer(name, button) {
+function selectPlayer(name) {
     const playerName = getElementTexetById(name, false);
-    const p = document.createElement('li');
+    const li = document.createElement('li');
 
-    // players can not selected more than five
+    // validation for checking can not selected more than five players
     const playersCount = playersDisplayContainer.childElementCount;
-    if (playersCount > 4) {
+    if (playersCount == 5) {
         alert("Players Limit Exceeded!!!");
         return;
     }
     else {
-        p.innerText = playerName;
-        playersDisplayContainer.appendChild(p);
+        li.innerText = playerName;
+        playersDisplayContainer.appendChild(li);
     }
-
-    // after selected button will be disabled
-    const selectButton = document.getElementById(button);
-    selectButton.setAttribute('disabled', true);
-    selectButton.style.border = '0';
 }
+
+// after selection, button will be disabled
+document.getElementById('all-players-container').addEventListener('click', function (event) {
+    const playersCount = playersDisplayContainer.childElementCount;
+    if (count == 5) {
+        return;
+    }
+    else {
+        const button = event.target;
+        const buttonText = button.innerText;
+        if (buttonText.toLowerCase() == 'select') {
+            button.setAttribute('disabled', true);
+            count++;
+        }
+    }
+})
 
 // total players price calculation
 document.getElementById('btn-calculate').addEventListener('click', function () {
