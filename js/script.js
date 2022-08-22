@@ -1,9 +1,9 @@
+const playersDisplayContainer = document.getElementById('players-display-container');
+
 // select player and display all selected players
 function selectPlayer(name, button) {
-    const nameElementOfPlayer = document.getElementById(name);
-    const playerName = nameElementOfPlayer.innerText;
+    const playerName = getElementTexetById(name);
 
-    const playersDisplayContainer = document.getElementById('players-display-container');
     const p = document.createElement('li');
 
     // players can not selected more than five
@@ -23,3 +23,12 @@ function selectPlayer(name, button) {
     selectButton.style.backgroundColor = 'grey';
     selectButton.style.border = '0';
 }
+
+// total players price calculation
+document.getElementById('btn-calculate').addEventListener('click', function () {
+    const totalPlayers = playersDisplayContainer.childElementCount;
+
+    const perPlayerExpense = getInputValueById('per-player-input-field');
+    const playersExpenses = perPlayerExpense * totalPlayers;
+    setElementextById('player-expenses-element', playersExpenses);
+})
