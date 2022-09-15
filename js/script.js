@@ -1,67 +1,48 @@
-const playersDisplayContainer = document.getElementById('players-display-container');
-let count = 0;
+// select player & disabled button and display all selected players
+function selectPlayer(element) {
+    const playerName = element.parentNode.children[0].innerText;
 
-// select player and display all selected players
-function selectPlayer(name) {
-    document.getElementById('default-text').style.display = 'none';
+    document.getElementById('default-text').innerText = '';
 
-    const playerName = getElementTexetById(name, false);
-    const li = document.createElement('li');
+    const showPlayersContainer = document.getElementById('players-display-container');
+    if (showPlayersContainer.children.length < 5) {
+        const li = document.createElement('li');
+        li.innerText = playerName;
+        showPlayersContainer.appendChild(li);
 
-    // validation for checking can not selected more than five players
-    const playersCount = playersDisplayContainer.childElementCount;
-    if (playersCount == 5) {
-        alert("Players Limit Exceeded!!!");
-        return;
+        element.setAttribute('disabled', true);
     }
     else {
-        li.innerText = playerName;
-        playersDisplayContainer.appendChild(li);
+        alert('Players Limit Exceeded!!!');
+        return;
     }
 }
 
-// after selection, button will be disabled
-document.getElementById('all-players-container').addEventListener('click', function (event) {
-    if (count == 5) {
-        return;
-    }
-    else {
-        const button = event.target;
-        const buttonText = button.innerText;
-        if (buttonText.toLowerCase() == 'select') {
-            button.setAttribute('disabled', true);
-            count++;
-        }
-    }
-})
-
 // total players price calculation
 document.getElementById('btn-calculate').addEventListener('click', function () {
-    const totalPlayers = playersDisplayContainer.childElementCount;
-    const perPlayerExpense = getInputValueById('per-player-input-field');
+    const perPlayerAmount = getInputValueById('per-player-input-field');
 
-    // validation for checking the input value is number or not
-    if (isNaN(perPlayerExpense)) {
+    // const totalPlayers = document.getElementById('players-display-container').childElementCount;
+    const totalPlayers = document.getElementById('players-display-container').children.length;
+    if (isNaN(perPlayerAmount)) {
         alert('Please give a number in per player input!');
         return;
     }
 
-    const playersExpenses = perPlayerExpense * totalPlayers;
+    const playersExpenses = perPlayerAmount * totalPlayers;
     setElementextById('player-expenses-element', playersExpenses);
 })
 
-// final budget calculation
+//final budget calculation
 document.getElementById('btn-calculate-total').addEventListener('click', function () {
-    const playersExpenses = getElementTexetById('player-expenses-element', true);
-    const managerCost = getInputValueById('manager-input-field');
-    const coachCost = getInputValueById('coach-input-field');
+    const playersExpensesAmount = getElementTexetById('player-expenses-element', true);
+    const managerAmount = getInputValueById('manager-input-field');
+    const coachAmount = getInputValueById('coach-input-field');
 
-    // validation for checking the input value is number or not
-    if (isNaN(playersExpenses) || isNaN(managerCost) || isNaN(coachCost)) {
+    if (isNaN(managerAmount) || isNaN(coachAmount)) {
         alert('Please give a number input for final calculation!');
         return;
     }
-
-    const totalCost = playersExpenses + managerCost + coachCost;
-    setElementextById('total-element', totalCost);
+    const finalBudget = playersExpensesAmount + managerAmount + coachAmount;
+    setElementextById('total-element', finalBudget);
 })
